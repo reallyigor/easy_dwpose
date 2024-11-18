@@ -2,15 +2,15 @@
 
 The goal of this project is to provide a generic, reliable and easy-to-use interface to run DWPose preprocessor for the OpenPose ControlNet.
 
-## Features we have
+## Why you should use it :yum:
 
 1. Easy installation!
-2. Automatic checkpoints downloading.
+2. Automatic checkpoint downloading.
 3. Generic class to either import in Jupyter or to run on a video/folder of images.
 4. Batch inference.
 5. Code that is easy to read and modify.
-6. Ability to choose a GPU you want to run the processor on.
-7. Custom drawing functions: modify how you draw a skeleton.
+6. Choose GPU for multi-gpu inference!
+7. Custom drawing functions: easy modify *how* you draw.
 
 ## Installation
 
@@ -27,8 +27,6 @@ git clone git@github.com:reallyigor/easy_dwpose.git
 cd easy_dwpose
 pip install -e .
 ```
-
-We use poetry as our building tool.
 
 ## Quickstart
 
