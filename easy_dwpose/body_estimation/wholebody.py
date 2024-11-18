@@ -9,9 +9,17 @@ class Wholebody:
     """detect human pose by dwpose"""
 
     def __init__(self, model_det, model_pose, device="cpu"):
-        providers = ["CPUExecutionProvider"] if device == "cpu" else ["CUDAExecutionProvider"]
-        provider_options = None if device == "cpu" else [{"device_id": 0}]
-
+        device = str(device)
+        
+        if device == "cpu":
+            providers = ["CPUExecutionProvider"]
+            provider_options = None
+        else:
+            if ":" in device:
+                gpu_id = int(device.split(":")[1])
+                providers = ["CUDAExecutionProvider"]
+                provider_options = [{"device_id": gpu_id}]
+        
         self.session_det = onnxruntime.InferenceSession(
             path_or_bytes=model_det, providers=providers, provider_options=provider_options
         )
