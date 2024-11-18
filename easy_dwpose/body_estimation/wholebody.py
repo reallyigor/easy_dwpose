@@ -10,7 +10,7 @@ class Wholebody:
 
     def __init__(self, model_det, model_pose, device="cpu"):
         device = str(device)
-        
+
         if device == "cpu":
             providers = ["CPUExecutionProvider"]
             provider_options = None
@@ -19,7 +19,7 @@ class Wholebody:
                 gpu_id = int(device.split(":")[1])
                 providers = ["CUDAExecutionProvider"]
                 provider_options = [{"device_id": gpu_id}]
-        
+
         self.session_det = onnxruntime.InferenceSession(
             path_or_bytes=model_det, providers=providers, provider_options=provider_options
         )
