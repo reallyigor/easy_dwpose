@@ -34,7 +34,12 @@ def load_video(input_path: str, max_video_len: Optional[int] = None) -> list[np.
 
 
 def save_video(frames: list[np.ndarray], output_path: str, fps: int) -> None:    
-    writer = imageio.get_writer(output_path, fps=fps)
+    writer = imageio.get_writer(
+        output_path, 
+        fps=fps, 
+        codec="libx264",
+        output_params=['-pix_fmt', 'yuv420p']
+    )
 
     for frame in frames:
         writer.append_data(frame)
@@ -56,6 +61,7 @@ if __name__ == "__main__":
 
     logger.info(f"Starting inference on video {args.input}")
     video, fps = load_video(args.input, args.max_video_len)
+    video = video[:10]
 
     result = []
     for frame in tqdm(video):
