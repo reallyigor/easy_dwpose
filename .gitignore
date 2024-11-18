@@ -1,5 +1,5 @@
 poetry.lock
 **/__pycache__
-models/
 test*.jpg
 **/.DS_Store
+.pytest*
