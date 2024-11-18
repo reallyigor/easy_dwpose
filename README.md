@@ -5,7 +5,7 @@ So, I decided to change that!
 
 The goal of Easy DWPose is to provide a generic, reliable, and easy-to-use interface for making skeletons for ControlNet.
 
-<a href="https://x.com/igorfeelippov"><img alt="X account" src="https://img.shields.io/twitter/url/https/twitter.com/diffuserslib.svg?style=social&label=Follow%20%40igorfeelippov"></a>
+Me: <a href="https://x.com/igorfeelippov"><img alt="X account" src="https://img.shields.io/twitter/url/https/twitter.com/diffuserslib.svg?style=social&label=Follow%20%40igorfeelippov"></a>
 
 ## Why you should use it :yum:
 
