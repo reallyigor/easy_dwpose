@@ -52,7 +52,7 @@ skeleton.save("skeleton.png")
 python script/inference_on_video.py --input assets/dance.mp4 --output_path result.mp4
 ```
 
-![video_skeleton](./assets/skeleton.mp4)
+![video_skeleton](https://github.com/user-attachments/assets/c3e8bc7c-61d5-4ce1-9168-5486affa802e)
 
 ### On a folder of images
 
