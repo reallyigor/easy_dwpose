@@ -40,9 +40,9 @@ from easy_dwpose import DWposeDetector
 # You can use a different GPU, e.g. "cuda:1"
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 detector = DWposeDetector(device=device)
-input = Image.open("assets/pose.png").convert("RGB")
+input_image = Image.open("assets/pose.png").convert("RGB")
 
-skeleton = detector(input, output_type="pil", include_hands=True, include_face=True)
+skeleton = detector(input_image, output_type="pil", include_hands=True, include_face=True)
 skeleton.save("skeleton.png")
 ```
 
@@ -90,6 +90,21 @@ python script/inference_on_video.py --input assets/dance.mp4 --output_path resul
 
 ```bash
 python script/inference_on_folder.py --input assets/ --output_path results/
+```
+
+### Custom skeleton drawing
+
+By default, we use standart skeleton drawing function but several projects change it (e.g. [MusePose](https://github.com/TMElyralab/MusePose)). Modify it or write your own from scratch!
+
+```python
+from easy_dwpose import DWposeDetector
+from easy_dwpose.draw.musepose import draw_pose as draw_pose_musepose
+
+detector = DWposeDetector(device="cpu")
+input_image = Image.open("assets/pose.png").convert("RGB")
+
+skeleton = detector(input_image, output_type="pil", draw_pose=draw_pose_musepose, draw_face=False)
+skeleton.save("skeleton.png")
 ```
 
 ## Acknowledgement
