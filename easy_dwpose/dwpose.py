@@ -5,6 +5,7 @@ import numpy as np
 import PIL
 import PIL.Image
 import torch
+from huggingface_hub import hf_hub_download
 
 from easy_dwpose.body_estimation import Wholebody, resize_image
 from easy_dwpose.draw import draw_openpose
@@ -12,6 +13,8 @@ from easy_dwpose.draw import draw_openpose
 
 class DWposeDetector:
     def __init__(self, *args):
+        hf_hub_download("RedHash/DWPose", "dw-ll_ucoco_384.onnx", local_dir="./checkpoints")
+        hf_hub_download("RedHash/DWPose", "yolox_l.onnx", local_dir="./checkpoints")
         self.pose_estimation = Wholebody(*args)
 
     def _format_pose(self, candidates, scores, width, height):

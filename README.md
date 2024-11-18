@@ -3,7 +3,7 @@
 Recently, I tried to inference the DWPose (improved OpenPose) preprocessor for [Diffusers](https://github.com/huggingface/diffusers) and was shocked by how complicated it actually is!
 So, I decided to change that!
 
-The goal of this project is to provide a generic, reliable, and easy-to-use interface for running DWPose.
+The goal of this project is to provide a generic, reliable, and easy-to-use interface for making skeletons for ControlNet.
 
 ## Why you should use it :yum:
 
