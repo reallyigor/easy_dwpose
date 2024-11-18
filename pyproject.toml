@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "easy_dwpose"
-version = "1.0.1"
+version = "1.0.2"
 description = ""
 authors = []
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 torch = "^2.2.2"
 opencv-python = "^4.10.0.84"
 numpy = "^1.26.4"

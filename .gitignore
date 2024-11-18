@@ -5,4 +5,4 @@ test*.png
 .pytest*
 checkpoints/
 ./*.png
-./dist/
+dist/
