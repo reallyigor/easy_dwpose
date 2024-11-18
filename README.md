@@ -19,7 +19,7 @@ The goal of this project is to provide a generic, reliable, and easy-to-use inte
 ### PIP
 
 ```bash
-pip install easy_dwpose
+pip install easy-dwpose
 ```
 
 ### From source
