@@ -15,10 +15,12 @@ class Wholebody:
             providers = ["CPUExecutionProvider"]
             provider_options = None
         else:
+            providers = ["CUDAExecutionProvider"]
             if ":" in device:
                 gpu_id = int(device.split(":")[1])
-                providers = ["CUDAExecutionProvider"]
                 provider_options = [{"device_id": gpu_id}]
+            else:
+                provider_options = [{"device_id": 0}]
 
         self.session_det = onnxruntime.InferenceSession(
             path_or_bytes=model_det, providers=providers, provider_options=provider_options

@@ -35,6 +35,9 @@ pip install -e .
 ### In you own .py scrip or in Jupyter
 
 ```python
+import torch
+from PIL import Image
+
 from easy_dwpose import DWposeDetector
 
 # You can use a different GPU, e.g. "cuda:1"
@@ -97,6 +100,8 @@ python script/inference_on_folder.py --input assets/ --output_path results/
 By default, we use standart skeleton drawing function but several projects change it (e.g. [MusePose](https://github.com/TMElyralab/MusePose)). Modify it or write your own from scratch!
 
 ```python
+from PIL import Image
+
 from easy_dwpose import DWposeDetector
 from easy_dwpose.draw.musepose import draw_pose as draw_pose_musepose
 

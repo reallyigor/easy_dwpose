@@ -6,6 +6,9 @@ authors = []
 
 [tool.poetry.dependencies]
 python = "^3.8"
+torch = "^2.2.2"
+opencv-python = "^4.10.0.84"
+numpy = "^1.26.4"
 omegaconf = "2.3.0"
 onnxruntime = { version = "1.16.2", markers = "sys_platform == 'darwin'" }
 onnxruntime-gpu = { version = "1.16.2", markers = "sys_platform == 'linux'" }
@@ -13,6 +16,7 @@ loguru = "^0.7.2"
 tqdm = "^4.66.5"
 imageio = "^2.9.0"
 huggingface_hub = "^0.24.6"
+matplotlib = "^3.9.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"

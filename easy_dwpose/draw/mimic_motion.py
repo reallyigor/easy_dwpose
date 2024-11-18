@@ -2,6 +2,7 @@
 Reference drawing function from the MimicMotion
 https://github.com/Tencent/MimicMotion/blob/main/mimicmotion/dwpose/util.py
 """
+
 import math
 
 import cv2
