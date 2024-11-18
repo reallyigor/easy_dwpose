@@ -13,8 +13,8 @@ if __name__ == "__main__":
     parser.add_argument("--output_path", type=Path, default="results/")
     args = parser.parse_args()
 
-    detector = "models/yolox_l.onnx"
-    pose_model = "models/dw-ll_ucoco_384.onnx"
+    detector = "checkpoints/yolox_l.onnx"
+    pose_model = "checkpoints/dw-ll_ucoco_384.onnx"
     detector = DWposeDetector(detector, pose_model)
     logger.info(f"Loaded detector")
 

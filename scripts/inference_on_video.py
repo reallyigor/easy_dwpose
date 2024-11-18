@@ -51,8 +51,8 @@ if __name__ == "__main__":
     parser.add_argument("--max_video_len", type=int, default=None)
     args = parser.parse_args()
 
-    detector = "models/yolox_l.onnx"
-    pose_model = "models/dw-ll_ucoco_384.onnx"
+    detector = "checkpoints/yolox_l.onnx"
+    pose_model = "checkpoints/dw-ll_ucoco_384.onnx"
     detector = DWposeDetector(detector, pose_model)
     logger.info(f"Loaded detector")
 

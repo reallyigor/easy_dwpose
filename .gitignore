@@ -3,3 +3,4 @@ poetry.lock
 test*.jpg
 **/.DS_Store
 .pytest*
+checkpoints/

@@ -6,10 +6,10 @@ from easy_dwpose.draw.musepose import draw_pose as draw_pose_musepose
 
 
 def test_forward():
-    detector = "models/yolox_l.onnx"
-    pose_model = "models/dw-ll_ucoco_384.onnx"
+    detector_path = "checkpoints/yolox_l.onnx"
+    pose_model_path = "checkpoints/dw-ll_ucoco_384.onnx"
 
-    detector = DWposeDetector(detector, pose_model)
+    detector = DWposeDetector(detector_path, pose_model_path)
     input = Image.open("assets/pose.png").convert("RGB")
     result = detector(input, output_type="pil", include_hands=True, include_face=True)
 
@@ -17,10 +17,10 @@ def test_forward():
 
 
 def test_replace_drawing_musepose():
-    detector = "models/yolox_l.onnx"
-    pose_model = "models/dw-ll_ucoco_384.onnx"
+    detector_path = "checkpoints/yolox_l.onnx"
+    pose_model_path = "checkpoints/dw-ll_ucoco_384.onnx"
 
-    detector = DWposeDetector(detector, pose_model)
+    detector = DWposeDetector(detector_path, pose_model_path)
     input = Image.open("assets/pose.png").convert("RGB")
     result = detector(input, output_type="pil", draw_pose=draw_pose_musepose, draw_face=False)
 
@@ -28,10 +28,10 @@ def test_replace_drawing_musepose():
 
 
 def test_replace_drawing_mimic_motion():
-    detector = "models/yolox_l.onnx"
-    pose_model = "models/dw-ll_ucoco_384.onnx"
+    detector_path = "checkpoints/yolox_l.onnx"
+    pose_model_path = "checkpoints/dw-ll_ucoco_384.onnx"
 
-    detector = DWposeDetector(detector, pose_model)
+    detector = DWposeDetector(detector_path, pose_model_path)
     input = Image.open("assets/pose.png").convert("RGB")
     result = detector(input, output_type="pil", draw_pose=draw_pose_mimic_motion)
 

@@ -14,25 +14,7 @@ class DWposeDetector:
     def __init__(self, *args):
         self.pose_estimation = Wholebody(*args)
 
-    @torch.inference_mode()
-    def __call__(
-        self,
-        image: Union[PIL.Image.Image, np.ndarray],
-        detect_resolution: int = 512,
-        draw_pose: Optional[Callable] = draw_openpose,
-        output_type: str = "pil",
-        **kwargs,
-    ) -> Union[PIL.Image.Image, np.ndarray, Dict]:
-        if type(image) != np.ndarray:
-            image = np.array(image.convert("RGB"))
-
-        image = image.copy()
-        original_height, original_width, _ = image.shape
-
-        image = resize_image(image, target_resolution=detect_resolution)
-        height, width, _ = image.shape
-
-        candidates, scores = self.pose_estimation(image)
+    def _format_pose(self, candidates, scores, width, height):
         num_candidates, _, locs = candidates.shape
 
         candidates[..., 0] /= float(width)
@@ -63,6 +45,30 @@ class DWposeDetector:
             faces=faces,
             faces_scores=faces_scores,
         )
+
+        return pose
+
+    @torch.inference_mode()
+    def __call__(
+        self,
+        image: Union[PIL.Image.Image, np.ndarray],
+        detect_resolution: int = 512,
+        draw_pose: Optional[Callable] = draw_openpose,
+        output_type: str = "pil",
+        **kwargs,
+    ) -> Union[PIL.Image.Image, np.ndarray, Dict]:
+        if type(image) != np.ndarray:
+            image = np.array(image.convert("RGB"))
+
+        image = image.copy()
+        original_height, original_width, _ = image.shape
+
+        image = resize_image(image, target_resolution=detect_resolution)
+        height, width, _ = image.shape
+
+        candidates, scores = self.pose_estimation(image)
+
+        pose = self._format_pose(candidates, scores, width, height)
 
         if not draw_pose:
             return pose
