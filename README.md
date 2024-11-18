@@ -54,7 +54,7 @@ python script/inference_on_video.py --input assets/dance.mp4 --output_path resul
 
 result.mp4
 
-![result](https://github.com/user-attachments/assets/2be469d8-b177-47a6-9195-34cb7ce764dc)
+![video_skeleton](./assets/skeleton.mp4)
 
 ### On a folder of images
 

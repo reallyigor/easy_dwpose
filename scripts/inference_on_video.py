@@ -2,6 +2,7 @@ import argparse
 from typing import Optional
 
 import cv2
+import imageio
 import numpy as np
 from loguru import logger
 from tqdm.auto import tqdm
@@ -32,22 +33,19 @@ def load_video(input_path: str, max_video_len: Optional[int] = None) -> list[np.
     return frames, fps
 
 
-def save_video(frames: list[np.ndarray], output_path: str, fps: int) -> None:
-    height, width, _ = frames[0].shape
-    fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-    out = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
+def save_video(frames: list[np.ndarray], output_path: str, fps: int) -> None:    
+    writer = imageio.get_writer(output_path, fps=fps)
 
     for frame in frames:
-        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
-        out.write(frame)
+        writer.append_data(frame)
 
-    out.release()
+    writer.close()
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", type=str, default="assets/dance.mp4")
-    parser.add_argument("--output_path", type=str, default="result.mp4")
+    parser.add_argument("--output_path", type=str, default="assets/skeleton.mp4")
     parser.add_argument("--max_video_len", type=int, default=None)
     args = parser.parse_args()
 

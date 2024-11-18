@@ -11,6 +11,7 @@ onnxruntime = { version = "1.16.2", markers = "sys_platform == 'darwin'" }
 onnxruntime-gpu = { version = "1.16.2", markers = "sys_platform == 'linux'" }
 loguru = "^0.7.2"
 tqdm = "^4.66.5"
+imageio = "^2.9.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
