@@ -69,7 +69,7 @@ skeleton.save("skeleton.png")
 ### On a video
 
 ```bash
-python script/inference_on_video.py --input assets/dance.mp4 --output_path result.mp4
+python scripts/inference_on_video.py --input assets/dance.mp4 --output_path result.mp4
 ```
 
 <table align="center">
@@ -92,7 +92,7 @@ python script/inference_on_video.py --input assets/dance.mp4 --output_path resul
 ### On a folder of images
 
 ```bash
-python script/inference_on_folder.py --input assets/ --output_path results/
+python scripts/inference_on_folder.py --input assets/ --output_path results/
 ```
 
 ### Custom skeleton drawing

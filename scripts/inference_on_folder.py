@@ -1,3 +1,4 @@
+import torch
 import argparse
 from pathlib import Path
 
@@ -13,9 +14,8 @@ if __name__ == "__main__":
     parser.add_argument("--output_path", type=Path, default="results/")
     args = parser.parse_args()
 
-    detector = "checkpoints/yolox_l.onnx"
-    pose_model = "checkpoints/dw-ll_ucoco_384.onnx"
-    detector = DWposeDetector(detector, pose_model)
+    device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    detector = DWposeDetector(device=device)
     logger.info(f"Loaded detector")
 
     logger.info(f"Starting inference on folder {args.input}")
