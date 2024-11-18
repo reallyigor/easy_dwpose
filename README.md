@@ -44,6 +44,8 @@ skeleton = detector(input, output_type="pil", include_hands=True, include_face=T
 skeleton.save("skeleton.png")
 ```
 
+![skeleton](./assets/skeleton.png)
+
 ### On a video
 
 ```bash

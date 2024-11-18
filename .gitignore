@@ -1,6 +1,7 @@
 poetry.lock
 **/__pycache__
-test*.jpg
+test*.png
 **/.DS_Store
 .pytest*
 checkpoints/
+./*.png
