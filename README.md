@@ -44,7 +44,22 @@ skeleton = detector(input, output_type="pil", include_hands=True, include_face=T
 skeleton.save("skeleton.png")
 ```
 
-![skeleton](./assets/skeleton.png)
+<table align="center">
+    <tr>
+      <th align="center">Input</th>
+      <th align="center">Output</th>
+    </tr>
+    <tr>
+        <td align="center">
+          <br />
+          <img src="./assets/pose.png"/>
+        </td>
+        <td align="center">
+          <br/>
+          <img src="./assets/skeleton.png"/>
+        </td>
+    </tr>
+</table>
 
 ### On a video
 
@@ -52,7 +67,22 @@ skeleton.save("skeleton.png")
 python script/inference_on_video.py --input assets/dance.mp4 --output_path result.mp4
 ```
 
-![video_skeleton](https://github.com/user-attachments/assets/c3e8bc7c-61d5-4ce1-9168-5486affa802e)
+<table align="center">
+    <tr>
+      <th align="center">Input</th>
+      <th align="center">Output</th>
+    </tr>
+    <tr>
+        <td align="center">
+          <br />
+          <img src="./assets/dance.gif"/>
+        </td>
+        <td align="center">
+          <br/>
+          <img src="./assets/skeleton.gif"/>
+        </td>
+    </tr>
+</table>
 
 ### On a folder of images
 
