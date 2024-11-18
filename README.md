@@ -6,15 +6,14 @@ The goal of this project is to provide a generic, reliable and easy-to-use inter
 
 1. Easy installation!
 2. Automatic checkpoint downloading.
-3. Generic class to either import in Jupyter or to run on a video/folder of images.
-4. Batch inference.
-5. Code that is easy to read and modify.
-6. Choose GPU for multi-gpu inference!
-7. Custom drawing functions: easy modify *how* you draw.
+3. Generic class to either import in Jupyter or to run on a video/images.
+4. Code that is easy to read and modify.
+5. Choose GPU for multi-gpu inference!
+6. Custom drawing functions: convenient interface for modifying *how* you draw skeletons.
 
 ## Installation
 
-### Pip
+### PIP
 
 ```bash
 pip install easy-dwpose
