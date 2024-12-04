@@ -39,6 +39,8 @@ pip install -e .
 ```python
 import torch
 from PIL import Image
+import numpy as np
+import json
 
 from easy_dwpose import DWposeDetector
 
@@ -47,8 +49,25 @@ device = "cuda:0" if torch.cuda.is_available() else "cpu"
 detector = DWposeDetector(device=device)
 input_image = Image.open("assets/pose.png").convert("RGB")
 
+# Get both the skeleton image and pose data
 skeleton = detector(input_image, output_type="pil", include_hands=True, include_face=True)
+pose_data = detector(input_image, draw_pose=False)  # This returns the dictionary
+
+# Save the skeleton image
 skeleton.save("skeleton.png")
+
+# Save the skeleton pose information:
+# Option 1: Save as NPY file
+np.save('pose_data.npy', pose_data)
+
+# Option 2: Save as NPZ file
+np.savez('pose_data.npz', **pose_data)
+
+# Option 3: Save as JSON file
+# Convert numpy arrays to lists for JSON serialization
+pose_data_json = {k: v.tolist() if isinstance(v, np.ndarray) else v for k, v in pose_data.items()}
+with open('pose_data.json', 'w') as f:
+    json.dump(pose_data_json, f)
 ```
 
 <table align="center">
